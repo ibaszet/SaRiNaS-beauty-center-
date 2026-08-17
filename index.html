@@ -565,7 +565,8 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
       <p>Remplissez le formulaire ci-contre : votre demande nous parvient instantanément et vous pourrez confirmer directement sur WhatsApp.</p>
       <div class="booking-points">
         <div class="booking-point"><span class="dot"></span><div><b>Réponse rapide</b><span>Confirmation sous quelques heures via WhatsApp ou téléphone.</span></div></div>
-        <div class="booking-point"><span class="dot"></span><div><b>Sans engagement</b><span>Votre créneau est provisoire jusqu'à confirmation de notre équipe.</span></div></div>
+        <div class="booking-point"><span class="dot"></span><div><b>Créneau exclusif</b><span>Une fois réservé, votre créneau est bloqué et ne peut être pris par personne d'autre.</span></div></div>
+        <div class="booking-point"><span class="dot"></span><div><b>Samedi — Jeudi, 08h – 16h</b><span>Fermé le vendredi. Réservation possible uniquement sur ce créneau horaire.</span></div></div>
         <div class="booking-point"><span class="dot"></span><div><b>Sur mesure</b><span>Chaque prestation est adaptée lors du diagnostic en institut.</span></div></div>
       </div>
     </div>
@@ -582,28 +583,65 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
 
         <div class="field" id="field-phone">
           <label for="phone">Téléphone *</label>
-          <input type="tel" id="phone" name="phone" placeholder="05 50 86 87 19" autocomplete="tel">
-          <div class="field-error">Numéro algérien invalide (ex: 05/06/07 XX XX XX XX).</div>
+          <input type="tel" id="phone" name="phone" placeholder="+213 550 86 87 19" autocomplete="tel">
+          <div class="field-error">Merci d'indiquer un numéro de téléphone valide.</div>
         </div>
 
         <div class="field" id="field-service">
           <label for="service">Service souhaité *</label>
           <select id="service" name="service">
             <option value="">Choisissez un service</option>
-            <option>Diagnostic capillaire</option>
-            <option>Soin à froid / à chaud</option>
-            <option>Coloration / Décoloration</option>
-            <option>Coupe / Brushing</option>
-            <option>Maquillage / Coiffure</option>
-            <option>Head spa / Traitements capillaires</option>
-            <option>Esthétique / Massage visage</option>
-            <option>Beauté du regard</option>
-            <option>Onglerie / Soin mains</option>
-            <option>Beauté des pieds</option>
-            <option>Épilation</option>
-            <option>Soins corps</option>
-            <option>Mariage</option>
-            <option>Services Premium</option>
+            <optgroup label="Coupe &amp; Styling">
+              <option>Coupe — 500 DA</option>
+              <option>Ondulé — à partir de 1 500 DA</option>
+              <option>Wavy — à partir de 2 500 DA</option>
+            </optgroup>
+            <optgroup label="Coloration &amp; Techniques">
+              <option>Coloration — 4 500 DA</option>
+              <option>Mèches — à partir de 6 000 DA</option>
+              <option>Balayage — à partir de 9 000 DA</option>
+            </optgroup>
+            <optgroup label="Rituels Cheveux">
+              <option>Rituel Éclat — 6 000 DA</option>
+              <option>Rituel à Froid — à partir de 9 000 DA</option>
+              <option>Rituel à Chaud — à partir de 12 000 DA</option>
+            </optgroup>
+            <optgroup label="Coiffure">
+              <option>Coiffure Simple — 3 000 DA</option>
+              <option>Coiffure Sophistiquée — 4 500 DA</option>
+              <option>Coiffure 3D — 6 000 DA</option>
+            </optgroup>
+            <optgroup label="Maquillage">
+              <option>Maquillage Essentiel — 3 000 DA</option>
+              <option>Maquillage Intense — 4 500 DA</option>
+              <option>Maquillage Signature — 6 000 DA</option>
+            </optgroup>
+            <optgroup label="Rituels &amp; Packs Événementiels">
+              <option>Pack Khotba — 12 000 à 14 000 DA</option>
+              <option>Pack 3rossa — 14 000 à 16 000 DA</option>
+              <option>Pack Henna — 16 000 à 18 000 DA</option>
+            </optgroup>
+            <optgroup label="Visage &amp; Regard">
+              <option>Soin Visage Profond — 4 500 DA</option>
+              <option>Hydrafacial — à partir de 6 000 DA</option>
+              <option>Oxygénothérapie — à partir de 9 000 DA</option>
+              <option>Épilation du visage au fil — 1 000 DA</option>
+              <option>Brow Lift / Lash Lift Essentiel — 3 000 DA</option>
+              <option>Brow Lift / Lash Lift Signature — 6 000 DA</option>
+            </optgroup>
+            <optgroup label="Ongles &amp; Mains / Pieds">
+              <option>Soin des mains — 3 000 DA</option>
+              <option>Soin des pieds — 4 500 DA</option>
+              <option>Vernis Semi-Permanent (VSP) — 2 000 DA</option>
+              <option>VSP &amp; Soin pieds — 6 000 DA</option>
+              <option>Pose Gel — à partir de 2 500 DA</option>
+              <option>Pose Capsule — à partir de 3 000 DA</option>
+            </optgroup>
+            <optgroup label="Head Spa &amp; Massages">
+              <option>Head Spa Essentiel — 4 500 DA</option>
+              <option>Massage Relaxant — 6 000 DA</option>
+              <option>Massage Drainant — 9 000 DA</option>
+            </optgroup>
           </select>
           <div class="field-error">Merci de choisir un service.</div>
         </div>
@@ -612,14 +650,16 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
           <div class="field" id="field-date">
             <label for="date">Date souhaitée *</label>
             <input type="date" id="date" name="date">
-            <div class="field-error">Merci de choisir une date valide.</div>
+            <div class="field-error" id="dateError">Réservation possible du samedi au jeudi uniquement (fermé le vendredi).</div>
           </div>
           <div class="field" id="field-time">
             <label for="time">Heure souhaitée *</label>
-            <input type="time" id="time" name="time">
-            <div class="field-error">Merci de choisir une heure.</div>
+            <input type="time" id="time" name="time" min="08:00" max="16:00">
+            <div class="field-error" id="timeError">Merci de choisir une heure entre 08:00 et 16:00.</div>
           </div>
         </div>
+
+        <div class="field-error" id="slotTakenError" style="display:none;margin-top:-10px;margin-bottom:16px;">Ce créneau est déjà réservé. Merci de choisir une autre date ou un autre horaire.</div>
 
         <button type="submit" class="submit-btn" id="submitBtn">
           <span class="spinner"></span>
@@ -647,9 +687,8 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
     <div class="infobar-block reveal">
       <span class="eyebrow">Horaires</span>
       <h4>Nos jours &amp; heures</h4>
-      <div class="hours-row"><span>Lun — Jeu / Sam — Dim (sans RDV)</span><b>10h – 17h</b></div>
-      <div class="hours-row"><span>Lun — Jeu / Sam — Dim (avec RDV)</span><b>08h – 20h</b></div>
-      <div class="hours-row"><span>Vendredi</span><b>Uniquement sur RDV</b></div>
+      <div class="hours-row"><span>Samedi — Jeudi</span><b>08h – 16h</b></div>
+      <div class="hours-row"><span>Vendredi</span><b>Fermé</b></div>
     </div>
     <div class="infobar-block reveal reveal-delay-1">
       <span class="eyebrow">Contact</span>
@@ -773,11 +812,28 @@ function setError(fieldId, isError){
   field.classList.toggle('error', isError);
 }
 
-function validatePhoneDZ(phone){
+function validatePhone(phone){
+  // Accepte tout numéro international : chiffres, espaces, tirets, + optionnel, 8 à 15 chiffres
   const cleaned = phone.replace(/[\s.-]/g, '');
-  // Algerian mobile: 05/06/07 + 8 digits, optionally prefixed with +213 or 0
-  const regex = /^(?:\+213|0)(5|6|7)[0-9]{8}$/;
+  const regex = /^\+?[0-9]{8,15}$/;
   return regex.test(cleaned);
+}
+
+// ============ RÈGLES D'OUVERTURE ============
+// Jours ouvrés : Samedi(6) -> Jeudi(4). Vendredi(5) = fermé.
+const CLOSED_WEEKDAY = 5; // Vendredi
+const OPEN_TIME = "08:00";
+const CLOSE_TIME = "16:00";
+
+function isClosedDay(dateStr){
+  if (!dateStr) return false;
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.getDay() === CLOSED_WEEKDAY;
+}
+
+function isWithinHours(timeStr){
+  if (!timeStr) return false;
+  return timeStr >= OPEN_TIME && timeStr <= CLOSE_TIME;
 }
 
 function todayISO(){
@@ -786,9 +842,39 @@ function todayISO(){
 }
 document.getElementById('date').min = todayISO();
 
+const slotTakenError = document.getElementById('slotTakenError');
+const dateInput = document.getElementById('date');
+const timeInput = document.getElementById('time');
+
+function hideSlotTakenError(){
+  slotTakenError.style.display = 'none';
+}
+dateInput.addEventListener('change', hideSlotTakenError);
+timeInput.addEventListener('change', hideSlotTakenError);
+
+// Vérifie en temps réel dans Firebase si le créneau (date + heure) est déjà réservé
+// et non annulé/supprimé. Un créneau reste bloqué tant que l'admin ne l'a pas
+// supprimé/annulé depuis le tableau de bord (Admin Panel).
+async function isSlotTaken(date, time){
+  const snapshot = await db.ref(`${PROJECT_ROOT}/bookings`)
+    .orderByChild('appointment')
+    .equalTo(`${date} ${time}`)
+    .once('value');
+
+  if (!snapshot.exists()) return false;
+
+  let taken = false;
+  snapshot.forEach(child => {
+    const b = child.val();
+    if (b.status !== 'cancelled') taken = true;
+  });
+  return taken;
+}
+
 form.addEventListener('submit', async function(e){
   e.preventDefault();
   submitError.classList.remove('show');
+  hideSlotTakenError();
 
   const name = document.getElementById('name').value.trim();
   const phone = document.getElementById('phone').value.trim();
@@ -804,31 +890,40 @@ form.addEventListener('submit', async function(e){
   setError('field-time', false);
 
   if (name.length < 3) { setError('field-name', true); valid = false; }
-  if (!validatePhoneDZ(phone)) { setError('field-phone', true); valid = false; }
+  if (!validatePhone(phone)) { setError('field-phone', true); valid = false; }
   if (!service) { setError('field-service', true); valid = false; }
-  if (!date) { setError('field-date', true); valid = false; }
-  if (!time) { setError('field-time', true); valid = false; }
+  if (!date || isClosedDay(date)) { setError('field-date', true); valid = false; }
+  if (!time || !isWithinHours(time)) { setError('field-time', true); valid = false; }
 
   if (!valid) return;
 
   submitBtn.disabled = true;
   submitBtn.classList.add('loading');
 
-  const bookingRef = db.ref(`${PROJECT_ROOT}/bookings`).push();
-  const bookingData = {
-    id: bookingRef.key,
-    name: name,
-    phone: phone,
-    service: service,
-    date: date,
-    time: time,
-    appointment: `${date} ${time}`,
-    status: 'new',
-    source: 'website',
-    createdAt: firebase.database.ServerValue.TIMESTAMP
-  };
-
   try {
+    // Vérification d'exclusivité du créneau juste avant l'envoi
+    const taken = await isSlotTaken(date, time);
+    if (taken) {
+      slotTakenError.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('loading');
+      return;
+    }
+
+    const bookingRef = db.ref(`${PROJECT_ROOT}/bookings`).push();
+    const bookingData = {
+      id: bookingRef.key,
+      name: name,
+      phone: phone,
+      service: service,
+      date: date,
+      time: time,
+      appointment: `${date} ${time}`,
+      status: 'new',
+      source: 'website',
+      createdAt: firebase.database.ServerValue.TIMESTAMP
+    };
+
     await bookingRef.set(bookingData);
 
     const waMessage = `Bonjour Sarinas Beauty Center, je souhaite confirmer mon rendez-vous :%0A%0ANom : ${name}%0AService : ${service}%0ADate : ${date}%0AHeure : ${time}`;
