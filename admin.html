@@ -432,9 +432,28 @@ function formatCreatedAt(ts){
   const d = new Date(ts);
   return d.toLocaleDateString('fr-FR', { day:'2-digit', month:'short' }) + ' à ' + d.toLocaleTimeString('fr-FR', { hour:'2-digit', minute:'2-digit' });
 }
+function normalizePhoneForWa(rawPhone){
+  let digits = (rawPhone || '').replace(/[^0-9]/g, '');
+  if (!digits) return '';
+
+  // Format international écrit "00213..." -> "213..."
+  if (digits.startsWith('00')) {
+    digits = digits.slice(2);
+  }
+
+  // Numéro algérien local sans indicatif : 0 + 9 chiffres (ex: 0674568704)
+  // -> on remplace le 0 initial par l'indicatif pays 213
+  const isLocalAlgerian = digits.length === 10 && digits[0] === '0' && ['5','6','7'].includes(digits[1]);
+  if (isLocalAlgerian) {
+    digits = '213' + digits.slice(1);
+  }
+
+  return digits;
+}
+
 function waLink(booking){
   const msg = `Bonjour ${booking.name}, ici Sarinas Beauty Center. Nous confirmons votre rendez-vous pour ${booking.service} le ${booking.date} à ${booking.time}.`;
-  return `https://wa.me/${(booking.phone||'').replace(/[^0-9]/g,'')}?text=${encodeURIComponent(msg)}`;
+  return `https://wa.me/${normalizePhoneForWa(booking.phone)}?text=${encodeURIComponent(msg)}`;
 }
 
 function bookingCardHTML(id, b){
