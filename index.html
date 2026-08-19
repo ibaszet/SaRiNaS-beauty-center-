@@ -900,10 +900,17 @@ form.addEventListener('submit', async function(e){
   submitBtn.disabled = true;
   submitBtn.classList.add('loading');
 
+  // On ouvre l'onglet WhatsApp immédiatement (au moment du clic) pour éviter
+  // que le navigateur (Safari/iOS notamment) bloque l'ouverture après un await.
+  // On le redirigera vers le bon lien une fois la réservation confirmée,
+  // ou on le fermera en cas d'erreur / créneau déjà pris.
+  const waTab = window.open('', '_blank');
+
   try {
     // Vérification d'exclusivité du créneau juste avant l'envoi
     const taken = await isSlotTaken(date, time);
     if (taken) {
+      if (waTab) waTab.close();
       slotTakenError.style.display = 'block';
       submitBtn.disabled = false;
       submitBtn.classList.remove('loading');
@@ -926,13 +933,23 @@ form.addEventListener('submit', async function(e){
 
     await bookingRef.set(bookingData);
 
-    const waMessage = `Bonjour Sarinas Beauty Center, je souhaite confirmer mon rendez-vous :%0A%0ANom : ${name}%0AService : ${service}%0ADate : ${date}%0AHeure : ${time}`;
-    waConfirmLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`;
+    const waMessage = `Bonjour Sarinas Beauty Center, je viens de réserver mon rendez-vous sur le site :%0A%0ANom : ${name}%0AService : ${service}%0ADate : ${date}%0AHeure : ${time}`;
+    const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`;
+    waConfirmLink.href = waLink;
 
     form.classList.add('hidden');
     formSuccess.classList.add('show');
+
+    // Redirection automatique et directe vers WhatsApp avec le message de réservation
+    if (waTab) {
+      waTab.location.href = waLink;
+    } else {
+      // Si la fenêtre a été bloquée par le navigateur, on redirige dans l'onglet actuel
+      window.location.href = waLink;
+    }
   } catch (err) {
     console.error('Erreur Firebase:', err);
+    if (waTab) waTab.close();
     submitError.classList.add('show');
   } finally {
     submitBtn.disabled = false;
