@@ -68,7 +68,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
 .nav-inner{display:flex;align-items:center;justify-content:space-between;}
 .nav-logo{font-family:'Playfair Display',serif;font-style:italic;font-size:24px;letter-spacing:.02em;color:var(--black);}
 .nav-logo span{color:var(--gold);}
-.nav-links{display:flex;gap:38px;}
+.nav-links{display:flex;gap:28px;}
 .nav-links a{
   font-size:13px;text-transform:uppercase;letter-spacing:.12em;font-weight:500;
   color:var(--charcoal);position:relative;padding-bottom:4px;
@@ -198,6 +198,70 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
 }
 @media (max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:600px){.services-grid{grid-template-columns:1fr;}}
+
+/* ============ HEAD SPA — LUXURY MENU ============ */
+.spa-banner{
+  display:flex;align-items:center;gap:14px;
+  background:linear-gradient(120deg,var(--ivory-deep),var(--sand) 140%);
+  border:1px solid var(--gold-soft);border-radius:16px;
+  padding:18px 26px;margin:0 0 46px;box-shadow:var(--shadow);
+}
+.spa-banner svg{width:22px;height:22px;color:var(--gold);flex-shrink:0;}
+.spa-banner p{font-size:13.5px;font-weight:500;color:var(--charcoal);letter-spacing:.01em;}
+.spa-banner b{color:var(--gold);font-weight:700;}
+.spa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+@media (max-width:900px){.spa-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:600px){.spa-grid{grid-template-columns:1fr;}}
+.spa-card{
+  position:relative;display:flex;flex-direction:column;
+  background:rgba(255,255,255,.5);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(173,138,84,.28);border-radius:20px;padding:32px 28px;
+  transition:.4s cubic-bezier(.22,.9,.35,1);
+}
+.spa-card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 26px 54px rgba(173,138,84,.20);}
+.spa-card.featured{background:rgba(255,255,255,.78);border-color:var(--gold);}
+.spa-card.featured::after{
+  content:'Populaire';position:absolute;top:-13px;right:24px;
+  background:var(--gold);color:var(--white);font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;padding:5px 14px;border-radius:20px;
+}
+.spa-duration{
+  align-self:flex-start;display:inline-flex;align-items:center;gap:5px;
+  font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);
+  background:rgba(173,138,84,.12);border:1px solid rgba(173,138,84,.3);
+  padding:5px 13px;border-radius:30px;margin-bottom:20px;
+}
+.spa-card h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:22px;margin-bottom:14px;}
+.spa-card ul{margin-bottom:24px;flex-grow:1;}
+.spa-card ul li{font-size:13.5px;font-weight:300;color:#6b6355;padding-left:16px;position:relative;margin-bottom:8px;}
+.spa-card ul li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--gold-soft);}
+.spa-price{font-family:'Playfair Display',serif;font-size:25px;color:var(--black);margin-bottom:20px;}
+.spa-book{
+  display:block;text-align:center;padding:13px;border-radius:40px;
+  background:var(--black);color:var(--white);font-size:12px;text-transform:uppercase;
+  letter-spacing:.1em;font-weight:600;transition:.3s ease;
+}
+.spa-book:hover{background:var(--gold);}
+
+/* ============ STUDIO & SHOOTING — TABS ============ */
+.studio-tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:44px;}
+.studio-tab{
+  padding:12px 24px;border-radius:40px;border:1px solid var(--line);background:var(--white);
+  font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--charcoal);
+  cursor:pointer;transition:.3s ease;font-family:'Inter',sans-serif;
+}
+.studio-tab.active{background:var(--black);color:var(--white);border-color:var(--black);}
+.studio-tab:hover:not(.active){border-color:var(--gold);color:var(--gold);}
+.studio-panel{display:none;grid-template-columns:repeat(3,1fr);gap:24px;}
+.studio-panel.active{display:grid;}
+@media (max-width:760px){.studio-panel.active{grid-template-columns:1fr;}}
+.studio-card{
+  background:var(--ivory-deep);border:1px solid var(--line);border-radius:18px;
+  padding:32px 26px;text-align:center;transition:.35s ease;
+}
+.studio-card:hover{background:var(--white);border-color:var(--gold-soft);transform:translateY(-4px);box-shadow:var(--shadow);}
+.studio-duration{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;margin-bottom:12px;}
+.studio-price{font-family:'Playfair Display',serif;font-size:25px;font-weight:600;color:var(--gold);margin-bottom:22px;}
 
 /* ============ GALLERY ============ */
 .gallery{background:var(--black);}
@@ -333,6 +397,8 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
     <div class="nav-links">
       <a href="#about">L'institut</a>
       <a href="#services">Services</a>
+      <a href="#headspa">Head Spa</a>
+      <a href="#studio">Studio</a>
       <a href="#gallery">Galerie</a>
       <a href="#booking">Réserver</a>
       <a href="#contact">Contact</a>
@@ -347,6 +413,8 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
   <button class="nav-mobile-close" id="navMobileClose" aria-label="Fermer">&times;</button>
   <a href="#about">L'institut</a>
   <a href="#services">Services</a>
+  <a href="#headspa">Head Spa</a>
+  <a href="#studio">Studio</a>
   <a href="#gallery">Galerie</a>
   <a href="#booking">Réserver</a>
   <a href="#contact">Contact</a>
@@ -380,7 +448,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
   <div class="container stats-grid">
     <div class="reveal"><div class="stat-num" data-count="12">0</div><div class="stat-label">Services experts</div></div>
     <div class="reveal reveal-delay-1"><div class="stat-num" data-count="1200" data-suffix="+">0</div><div class="stat-label">Clientes accompagnées</div></div>
-    <div class="reveal reveal-delay-2"><div class="stat-num" data-count="7">0</div><div class="stat-label">Jours d'ouverture</div></div>
+    <div class="reveal reveal-delay-2"><div class="stat-num" data-count="3">0</div><div class="stat-label">Ans d'expérience</div></div>
     <div class="reveal reveal-delay-3"><div class="stat-num" data-count="98" data-suffix="%">0</div><div class="stat-label">Clientes satisfaites</div></div>
   </div>
 </section>
@@ -396,7 +464,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
     </div>
     <div class="about-card reveal reveal-delay-1">
       <div class="about-photo"><img src="img4.jpg" alt="Fondatrice Sarinas Beauty Center"></div>
-      <h3>Sarina</h3>
+      <h3>Sara</h3>
       <div class="role">Fondatrice &amp; Experte Beauté</div>
       <div class="divider"></div>
       <div class="phone-label">Ligne directe</div>
@@ -421,7 +489,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
         <h3>Diagnostic capillaire</h3>
         <p>Analyse personnalisée du cuir chevelu et de la fibre pour orienter chaque soin vers le résultat idéal.</p>
-        <div class="service-tags"><span>Bilan personnalisé</span><span>Conseil expert</span></div>
+        <div class="service-tags"><span>Gratuit</span><span>Bilan personnalisé</span><span>Conseil expert</span></div>
       </div>
 
       <div class="service-card reveal reveal-delay-1">
@@ -455,7 +523,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
       <div class="service-card reveal reveal-delay-2">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
         <h3>Head spa / Traitements</h3>
-        <p>Massage crânien, traitement anti-chute, anti-pelliculaire — un rituel de détente pour le cuir chevelu.</p>
+        <p>Massage crânien, traitement anti-chute, anti-pelliculaire — 6 rituels de détente pour le cuir chevelu. <a href="#headspa" style="color:var(--gold);font-weight:600;">Découvrir le menu →</a></p>
         <div class="service-tags"><span>Massage crânien</span><span>Anti-chute</span></div>
       </div>
 
@@ -519,6 +587,146 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
         <div class="service-tags"><span>Forfait VIP</span><span>Carte cadeau</span><span>À domicile</span></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ HEAD SPA & MASSAGE ============ -->
+<section class="section" id="headspa" style="background:var(--ivory-deep);">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Univers détente</span>
+      <h2>Head Spa &amp; <span class="serif-italic">Massage</span></h2>
+      <p>Une parenthèse sensorielle pensée pour le cuir chevelu, le visage et le corps.</p>
+    </div>
+
+    <div class="spa-banner reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+      <p><b>Offre spéciale —</b> Diagnostic capillaire offert avec chaque prestation Head Spa &amp; Massage.</p>
+    </div>
+
+    <div class="spa-grid">
+
+      <div class="spa-card reveal">
+        <span class="spa-duration">⏱ 30 min</span>
+        <h3>Pureté</h3>
+        <ul><li>Diagnostic</li><li>Brossage</li><li>Massage crânien</li></ul>
+        <div class="spa-price">4 500 DA</div>
+        <a href="#booking" class="spa-book" data-service="Rituel Pureté — 30 min — 4 500 DA">Réserver</a>
+      </div>
+
+      <div class="spa-card reveal reveal-delay-1">
+        <span class="spa-duration">⏱ 45 min</span>
+        <h3>Éclat</h3>
+        <ul><li>Modelage inclus</li></ul>
+        <div class="spa-price">6 000 DA</div>
+        <a href="#booking" class="spa-book" data-service="Rituel Éclat (Head Spa) — 45 min — 6 000 DA">Réserver</a>
+      </div>
+
+      <div class="spa-card reveal reveal-delay-2">
+        <span class="spa-duration">⏱ 1h00</span>
+        <h3>Sensorielle</h3>
+        <ul><li>Soin visage inclus</li></ul>
+        <div class="spa-price">9 000 DA</div>
+        <a href="#booking" class="spa-book" data-service="Sensorielle — 1h00 — 9 000 DA">Réserver</a>
+      </div>
+
+      <div class="spa-card featured reveal">
+        <span class="spa-duration">⏱ 1h15</span>
+        <h3>Évasion Absolue</h3>
+        <ul><li>Soin visage</li><li>Massage inclus</li></ul>
+        <div class="spa-price">12 000 DA</div>
+        <a href="#booking" class="spa-book" data-service="Évasion Absolue — 1h15 — 12 000 DA">Réserver</a>
+      </div>
+
+      <div class="spa-card reveal reveal-delay-1">
+        <span class="spa-duration">⏱ 1h30</span>
+        <h3>Impérial</h3>
+        <ul><li>Soin visage</li><li>Modelage &amp; Massage</li></ul>
+        <div class="spa-price">15 000 DA</div>
+        <a href="#booking" class="spa-book" data-service="Rituel Impérial — 1h30 — 15 000 DA">Réserver</a>
+      </div>
+
+      <div class="spa-card reveal reveal-delay-2">
+        <span class="spa-duration">⏱ 1h45</span>
+        <h3>Cérémonie Royale</h3>
+        <ul><li>Soin visage</li><li>Soin capillaire à froid</li></ul>
+        <div class="spa-price">18 000 DA</div>
+        <a href="#booking" class="spa-book" data-service="Cérémonie Royale — 1h45 — 18 000 DA">Réserver</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ STUDIO & SHOOTING ============ -->
+<section class="section" id="studio">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Espace créatif</span>
+      <h2>Studio &amp; <span class="serif-italic">Shooting</span></h2>
+      <p>Louez notre studio pour vos créations, seule ou accompagnée d'un shooting professionnel.</p>
+    </div>
+
+    <div class="studio-tabs reveal">
+      <button type="button" class="studio-tab active" data-tab="studio">Studio Seul</button>
+      <button type="button" class="studio-tab" data-tab="shooting">Studio + Shooting iPhone 17 Pro Max</button>
+      <button type="button" class="studio-tab" data-tab="model">Service Modèle</button>
+    </div>
+
+    <div class="studio-panel active" id="panel-studio">
+      <div class="studio-card reveal">
+        <div class="studio-duration">1h30</div>
+        <div class="studio-price">3 000 DA</div>
+        <a href="#booking" class="spa-book" data-service="Studio Seul — 1h30 — 3 000 DA">Réserver</a>
+      </div>
+      <div class="studio-card reveal reveal-delay-1">
+        <div class="studio-duration">Demi-journée</div>
+        <div class="studio-price">6 000 DA</div>
+        <a href="#booking" class="spa-book" data-service="Studio Seul — Demi-journée — 6 000 DA">Réserver</a>
+      </div>
+      <div class="studio-card reveal reveal-delay-2">
+        <div class="studio-duration">Journée complète</div>
+        <div class="studio-price">9 000 DA</div>
+        <a href="#booking" class="spa-book" data-service="Studio Seul — Journée complète — 9 000 DA">Réserver</a>
+      </div>
+    </div>
+
+    <div class="studio-panel" id="panel-shooting">
+      <div class="studio-card reveal">
+        <div class="studio-duration">1h30</div>
+        <div class="studio-price">3 000 DA</div>
+        <a href="#booking" class="spa-book" data-service="Studio + Shooting iPhone 17 Pro Max — 1h30 — 3 000 DA">Réserver</a>
+      </div>
+      <div class="studio-card reveal reveal-delay-1">
+        <div class="studio-duration">Demi-journée</div>
+        <div class="studio-price">6 000 DA</div>
+        <a href="#booking" class="spa-book" data-service="Studio + Shooting iPhone 17 Pro Max — Demi-journée — 6 000 DA">Réserver</a>
+      </div>
+      <div class="studio-card reveal reveal-delay-2">
+        <div class="studio-duration">Journée complète</div>
+        <div class="studio-price">12 000 DA</div>
+        <a href="#booking" class="spa-book" data-service="Studio + Shooting iPhone 17 Pro Max — Journée complète — 12 000 DA">Réserver</a>
+      </div>
+    </div>
+
+    <div class="studio-panel" id="panel-model">
+      <div class="studio-card reveal">
+        <div class="studio-duration">1h30</div>
+        <div class="studio-price">3 000 DA</div>
+        <a href="#booking" class="spa-book" data-service="Service Modèle — 1h30 — 3 000 DA">Réserver</a>
+      </div>
+      <div class="studio-card reveal reveal-delay-1">
+        <div class="studio-duration">Demi-journée</div>
+        <div class="studio-price">6 000 DA</div>
+        <a href="#booking" class="spa-book" data-service="Service Modèle — Demi-journée — 6 000 DA">Réserver</a>
+      </div>
+      <div class="studio-card reveal reveal-delay-2">
+        <div class="studio-duration">Journée complète</div>
+        <div class="studio-price">12 000 DA</div>
+        <a href="#booking" class="spa-book" data-service="Service Modèle — Journée complète — 12 000 DA">Réserver</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -591,30 +799,33 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
           <label for="service">Service souhaité *</label>
           <select id="service" name="service">
             <option value="">Choisissez un service</option>
+            <optgroup label="Diagnostic">
+              <option>Bilan complet — Gratuit</option>
+            </optgroup>
             <optgroup label="Coupe &amp; Styling">
-              <option>Coupe — 500 DA</option>
+              <option>Classique — 500 DA</option>
               <option>Ondulé — à partir de 1 500 DA</option>
               <option>Wavy — à partir de 2 500 DA</option>
             </optgroup>
             <optgroup label="Coloration &amp; Techniques">
-              <option>Coloration — 4 500 DA</option>
+              <option>Uniforme — 4 500 DA</option>
               <option>Mèches — à partir de 6 000 DA</option>
               <option>Balayage — à partir de 9 000 DA</option>
             </optgroup>
-            <optgroup label="Rituels Cheveux">
+            <optgroup label="Soin capillaire">
               <option>Rituel Éclat — 6 000 DA</option>
               <option>Rituel à Froid — à partir de 9 000 DA</option>
               <option>Rituel à Chaud — à partir de 12 000 DA</option>
             </optgroup>
             <optgroup label="Coiffure">
-              <option>Coiffure Simple — 3 000 DA</option>
-              <option>Coiffure Sophistiquée — 4 500 DA</option>
-              <option>Coiffure 3D — 6 000 DA</option>
+              <option>Simple — 3 000 DA</option>
+              <option>Sophistiquée — 4 500 DA</option>
+              <option>3D — 6 000 DA</option>
             </optgroup>
             <optgroup label="Maquillage">
-              <option>Maquillage Essentiel — 3 000 DA</option>
-              <option>Maquillage Intense — 4 500 DA</option>
-              <option>Maquillage Signature — 6 000 DA</option>
+              <option>Essentiel — 3 000 DA</option>
+              <option>Intense — 4 500 DA</option>
+              <option>Signature — 6 000 DA</option>
             </optgroup>
             <optgroup label="Rituels &amp; Packs Événementiels">
               <option>Pack Khotba — 12 000 à 14 000 DA</option>
@@ -622,12 +833,12 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
               <option>Pack Henna — 16 000 à 18 000 DA</option>
             </optgroup>
             <optgroup label="Visage &amp; Regard">
-              <option>Soin Visage Profond — 4 500 DA</option>
+              <option>Nettoyage Profond — 4 500 DA</option>
               <option>Hydrafacial — à partir de 6 000 DA</option>
               <option>Oxygénothérapie — à partir de 9 000 DA</option>
-              <option>Épilation du visage au fil — 1 000 DA</option>
-              <option>Brow Lift / Lash Lift Essentiel — 3 000 DA</option>
-              <option>Brow Lift / Lash Lift Signature — 6 000 DA</option>
+              <option>Épilation au fil — 1 000 DA</option>
+              <option>Brow / Lash Lift Essentiel — 3 000 DA</option>
+              <option>Brow / Lash Lift Signature — 6 000 DA</option>
             </optgroup>
             <optgroup label="Ongles &amp; Mains / Pieds">
               <option>Soin des mains — 3 000 DA</option>
@@ -637,10 +848,24 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
               <option>Pose Gel — à partir de 2 500 DA</option>
               <option>Pose Capsule — à partir de 3 000 DA</option>
             </optgroup>
-            <optgroup label="Head Spa &amp; Massages">
-              <option>Head Spa Essentiel — 4 500 DA</option>
-              <option>Massage Relaxant — 6 000 DA</option>
-              <option>Massage Drainant — 9 000 DA</option>
+            <optgroup label="Head Spa &amp; Massage">
+              <option>Rituel Pureté — 30 min — 4 500 DA</option>
+              <option>Rituel Éclat (Head Spa) — 45 min — 6 000 DA</option>
+              <option>Sensorielle — 1h00 — 9 000 DA</option>
+              <option>Évasion Absolue — 1h15 — 12 000 DA</option>
+              <option>Rituel Impérial — 1h30 — 15 000 DA</option>
+              <option>Cérémonie Royale — 1h45 — 18 000 DA</option>
+            </optgroup>
+            <optgroup label="Studio &amp; Shooting">
+              <option>Studio Seul — 1h30 — 3 000 DA</option>
+              <option>Studio Seul — Demi-journée — 6 000 DA</option>
+              <option>Studio Seul — Journée complète — 9 000 DA</option>
+              <option>Studio + Shooting iPhone 17 Pro Max — 1h30 — 3 000 DA</option>
+              <option>Studio + Shooting iPhone 17 Pro Max — Demi-journée — 6 000 DA</option>
+              <option>Studio + Shooting iPhone 17 Pro Max — Journée complète — 12 000 DA</option>
+              <option>Service Modèle — 1h30 — 3 000 DA</option>
+              <option>Service Modèle — Demi-journée — 6 000 DA</option>
+              <option>Service Modèle — Journée complète — 12 000 DA</option>
             </optgroup>
           </select>
           <div class="field-error">Merci de choisir un service.</div>
@@ -766,6 +991,43 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 revealEls.forEach(el => io.observe(el));
+
+/* ============ STUDIO & SHOOTING TABS ============ */
+const studioTabs = document.querySelectorAll('.studio-tab');
+const studioPanels = {
+  studio: document.getElementById('panel-studio'),
+  shooting: document.getElementById('panel-shooting'),
+  model: document.getElementById('panel-model')
+};
+studioTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    studioTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    Object.values(studioPanels).forEach(p => p.classList.remove('active'));
+    studioPanels[tab.dataset.tab].classList.add('active');
+  });
+});
+
+/* ============ "RÉSERVER" — PRÉ-SÉLECTION DU SERVICE ============ */
+const serviceSelect = document.getElementById('service');
+document.querySelectorAll('.spa-book[data-service]').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const wanted = btn.dataset.service;
+    let matched = false;
+    for (const opt of serviceSelect.options) {
+      if (opt.text === wanted) {
+        serviceSelect.value = opt.value;
+        matched = true;
+        break;
+      }
+    }
+    if (matched) {
+      serviceSelect.dispatchEvent(new Event('change'));
+    }
+    document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+  });
+});
 
 /* ============ STAT COUNTERS ============ */
 const statEls = document.querySelectorAll('.stat-num');

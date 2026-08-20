@@ -217,9 +217,10 @@ a{color:inherit;}
   <div class="login-box" id="loginBox">
     <div class="login-logo">Sarina<span>s</span></div>
     <div class="login-sub">Espace de gestion</div>
+    <input type="email" id="emailInput" placeholder="Adresse e-mail" autocomplete="username">
     <input type="password" id="passwordInput" placeholder="Mot de passe" autocomplete="current-password">
     <button class="login-btn" id="loginBtn">Se connecter</button>
-    <div class="login-error" id="loginError">Mot de passe incorrect. Merci de réessayer.</div>
+    <div class="login-error" id="loginError">E-mail ou mot de passe incorrect. Merci de réessayer.</div>
   </div>
 </div>
 
@@ -328,6 +329,7 @@ a{color:inherit;}
 <!-- ============ FIREBASE ============ -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 <script>
 const firebaseConfig = {
   apiKey: "AIzaSyDWB3wXOYjjF3jzY3AI-fkC-9lMZ23F9DM",
@@ -340,36 +342,55 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
+const auth = firebase.auth();
 const PROJECT_ROOT = "sarinas-beauty-center";
 const WHATSAPP_NUMBER = "213550868719";
-const ADMIN_PASSWORD = "Sarinas2026"; // À modifier avant mise en production
 </script>
 
 <script>
 /* ============ LOGIN ============ */
 const loginScreen = document.getElementById('loginScreen');
 const loginBox = document.getElementById('loginBox');
+const emailInput = document.getElementById('emailInput');
 const passwordInput = document.getElementById('passwordInput');
 const loginBtn = document.getElementById('loginBtn');
 const loginError = document.getElementById('loginError');
 const app = document.getElementById('app');
 
+function showLoginError(message){
+  loginError.textContent = message;
+  loginError.classList.add('show');
+  loginBox.classList.remove('shake');
+  void loginBox.offsetWidth;
+  loginBox.classList.add('shake');
+  passwordInput.value='';
+  passwordInput.focus();
+}
+
 function attemptLogin(){
-  const val = passwordInput.value;
-  if (val === ADMIN_PASSWORD){
-    sessionStorage.setItem('sarinas_admin_auth', 'true');
-    showApp();
-  } else {
-    loginError.classList.add('show');
-    loginBox.classList.remove('shake');
-    void loginBox.offsetWidth;
-    loginBox.classList.add('shake');
-    passwordInput.value='';
-    passwordInput.focus();
+  const email = emailInput.value.trim();
+  const password = passwordInput.value;
+
+  if (!email || !password){
+    showLoginError('Merci de renseigner votre e-mail et votre mot de passe.');
+    return;
   }
+
+  loginBtn.disabled = true;
+  loginError.classList.remove('show');
+
+  auth.signInWithEmailAndPassword(email, password)
+    .catch((err) => {
+      console.error('Erreur de connexion:', err);
+      showLoginError('E-mail ou mot de passe incorrect. Merci de réessayer.');
+    })
+    .finally(() => {
+      loginBtn.disabled = false;
+    });
 }
 loginBtn.addEventListener('click', attemptLogin);
 passwordInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') attemptLogin(); });
+emailInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') attemptLogin(); });
 
 function showApp(){
   loginScreen.style.display='none';
@@ -377,13 +398,24 @@ function showApp(){
   initListeners();
 }
 
-if (sessionStorage.getItem('sarinas_admin_auth') === 'true'){
-  showApp();
+function showLogin(){
+  app.classList.remove('show');
+  loginScreen.style.display='flex';
+  emailInput.value = '';
+  passwordInput.value = '';
 }
 
+// L'état de connexion est géré par Firebase Authentication (persistant entre les visites)
+auth.onAuthStateChanged((user) => {
+  if (user){
+    showApp();
+  } else {
+    showLogin();
+  }
+});
+
 document.getElementById('logoutBtn').addEventListener('click', () => {
-  sessionStorage.removeItem('sarinas_admin_auth');
-  location.reload();
+  auth.signOut();
 });
 
 /* ============ TABS ============ */
