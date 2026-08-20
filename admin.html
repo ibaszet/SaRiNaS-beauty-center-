@@ -345,6 +345,15 @@ const db = firebase.database();
 const auth = firebase.auth();
 const PROJECT_ROOT = "sarinas-beauty-center";
 const WHATSAPP_NUMBER = "213550868719";
+
+// UID(s) Firebase Authentication autorisés à accéder au dashboard admin.
+// À récupérer dans Firebase Console → Authentication → Users (colonne "User UID").
+// Un compte peut se connecter avec le bon email/mot de passe mais sera quand
+// même refusé ici si son UID n'est pas dans cette liste.
+const ADMIN_UIDS = [
+  "vMr8gGxPwDh71k2olWRDXFPwVlK2"
+  // "REMPLACER_PAR_UID_ADMIN_2", // décommenter pour ajouter un 2e compte admin
+];
 </script>
 
 <script>
@@ -405,13 +414,30 @@ function showLogin(){
   passwordInput.value = '';
 }
 
-// L'état de connexion est géré par Firebase Authentication (persistant entre les visites)
+function isAuthorizedAdmin(user){
+  return !!user && ADMIN_UIDS.includes(user.uid);
+}
+
+// Flux : Email + Password → Firebase Authentication → vérification UID → Dashboard.
+// 1) Firebase Auth confirme que l'email/mot de passe sont corrects.
+// 2) On vérifie ensuite que le UID du compte connecté fait bien partie de
+//    ADMIN_UIDS. Un compte valide mais non-admin est immédiatement déconnecté.
 auth.onAuthStateChanged((user) => {
-  if (user){
-    showApp();
-  } else {
+  if (!user){
     showLogin();
+    return;
   }
+
+  if (!isAuthorizedAdmin(user)){
+    console.warn('Connexion refusée : UID non autorisé ->', user.uid);
+    auth.signOut().finally(() => {
+      showLoginError("Ce compte n'est pas autorisé à accéder au tableau de bord.");
+      showLogin();
+    });
+    return;
+  }
+
+  showApp();
 });
 
 document.getElementById('logoutBtn').addEventListener('click', () => {
@@ -530,15 +556,33 @@ function escapeHTML(str){
 }
 
 /* ============ ACTIONS ============ */
+function slotKey(b){
+  return b && b.date && b.time ? `${b.date}_${b.time}` : null;
+}
+
 function updateStatus(id, status){
-  db.ref(`${PROJECT_ROOT}/bookings/${id}`).update({ status }).catch(err => {
+  const b = bookings[id];
+  db.ref(`${PROJECT_ROOT}/bookings/${id}`).update({ status }).then(() => {
+    const key = slotKey(b);
+    if (!key) return;
+    // Un rendez-vous annulé libère le créneau ; tout autre statut le garde occupé.
+    if (status === 'cancelled') {
+      db.ref(`${PROJECT_ROOT}/takenSlots/${key}`).remove();
+    } else {
+      db.ref(`${PROJECT_ROOT}/takenSlots/${key}`).set(true);
+    }
+  }).catch(err => {
     alert('Erreur lors de la mise à jour du statut.');
     console.error(err);
   });
 }
 function deleteBooking(id){
   if (!confirm('Supprimer définitivement cette réservation ?')) return;
-  db.ref(`${PROJECT_ROOT}/bookings/${id}`).remove().catch(err => {
+  const b = bookings[id];
+  db.ref(`${PROJECT_ROOT}/bookings/${id}`).remove().then(() => {
+    const key = slotKey(b);
+    if (key) db.ref(`${PROJECT_ROOT}/takenSlots/${key}`).remove();
+  }).catch(err => {
     alert('Erreur lors de la suppression.');
     console.error(err);
   });
@@ -625,6 +669,7 @@ addForm.addEventListener('submit', async function(e){
 
   try {
     await bookingRef.set(bookingData);
+    await db.ref(`${PROJECT_ROOT}/takenSlots/${date}_${time}`).set(true);
     addSuccess.classList.add('show');
     addForm.reset();
     document.getElementById('add-date').min = new Date().toISOString().split('T')[0];

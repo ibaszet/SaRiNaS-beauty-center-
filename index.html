@@ -1118,19 +1118,8 @@ timeInput.addEventListener('change', hideSlotTakenError);
 // et non annulé/supprimé. Un créneau reste bloqué tant que l'admin ne l'a pas
 // supprimé/annulé depuis le tableau de bord (Admin Panel).
 async function isSlotTaken(date, time){
-  const snapshot = await db.ref(`${PROJECT_ROOT}/bookings`)
-    .orderByChild('appointment')
-    .equalTo(`${date} ${time}`)
-    .once('value');
-
-  if (!snapshot.exists()) return false;
-
-  let taken = false;
-  snapshot.forEach(child => {
-    const b = child.val();
-    if (b.status !== 'cancelled') taken = true;
-  });
-  return taken;
+  const snapshot = await db.ref(`${PROJECT_ROOT}/takenSlots/${date}_${time}`).once('value');
+  return snapshot.exists() && snapshot.val() === true;
 }
 
 form.addEventListener('submit', async function(e){
@@ -1194,6 +1183,9 @@ form.addEventListener('submit', async function(e){
     };
 
     await bookingRef.set(bookingData);
+    // Marque le créneau comme pris dans le nœud public (sans données personnelles)
+    // pour que le site puisse vérifier la disponibilité sans lire les réservations privées.
+    await db.ref(`${PROJECT_ROOT}/takenSlots/${date}_${time}`).set(true);
 
     const waMessage = `Bonjour Sarinas Beauty Center, je viens de réserver mon rendez-vous sur le site :%0A%0ANom : ${name}%0AService : ${service}%0ADate : ${date}%0AHeure : ${time}`;
     const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`;
