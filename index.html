@@ -68,7 +68,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
 .nav-inner{display:flex;align-items:center;justify-content:space-between;}
 .nav-logo{font-family:'Playfair Display',serif;font-style:italic;font-size:24px;letter-spacing:.02em;color:var(--black);}
 .nav-logo span{color:var(--gold);}
-.nav-links{display:flex;gap:28px;}
+.nav-links{display:flex;gap:22px;}
 .nav-links a{
   font-size:13px;text-transform:uppercase;letter-spacing:.12em;font-weight:500;
   color:var(--charcoal);position:relative;padding-bottom:4px;
@@ -231,7 +231,8 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
   background:rgba(173,138,84,.12);border:1px solid rgba(173,138,84,.3);
   padding:5px 13px;border-radius:30px;margin-bottom:20px;
 }
-.spa-card h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:22px;margin-bottom:14px;}
+.spa-card h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:22px;margin-bottom:10px;}
+.spa-caption{font-size:12.5px;font-weight:300;color:#8b8271;line-height:1.5;margin-bottom:16px;}
 .spa-card ul{margin-bottom:24px;flex-grow:1;}
 .spa-card ul li{font-size:13.5px;font-weight:300;color:#6b6355;padding-left:16px;position:relative;margin-bottom:8px;}
 .spa-card ul li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--gold-soft);}
@@ -262,6 +263,61 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
 .studio-card:hover{background:var(--white);border-color:var(--gold-soft);transform:translateY(-4px);box-shadow:var(--shadow);}
 .studio-duration{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;margin-bottom:12px;}
 .studio-price{font-family:'Playfair Display',serif;font-size:25px;font-weight:600;color:var(--gold);margin-bottom:22px;}
+
+/* ============ MENU BLOCKS (Body Care / Visage & Manucure) ============ */
+.menu-intro{max-width:640px;margin:0 auto 44px;text-align:center;font-size:14.5px;font-weight:300;color:#6b6355;line-height:1.7;}
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+@media (max-width:820px){.menu-grid{grid-template-columns:1fr;}}
+.menu-block{
+  background:rgba(255,255,255,.6);border:1px solid var(--line);border-radius:18px;
+  padding:30px 28px;transition:.3s ease;
+}
+.menu-block:hover{border-color:var(--gold-soft);box-shadow:var(--shadow);}
+.menu-block-title{
+  display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;
+  font-style:italic;font-weight:500;font-size:18.5px;color:var(--black);margin-bottom:18px;
+}
+.menu-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px dotted rgba(23,19,16,.2);padding:11px 0;}
+.menu-row:last-child{border-bottom:none;}
+.menu-row-name{font-size:13.5px;font-weight:500;color:var(--charcoal);}
+.menu-row-name small{display:block;font-size:11px;font-weight:300;color:#8b8271;margin-top:3px;line-height:1.5;}
+.menu-row-price{font-family:'Playfair Display',serif;font-size:14.5px;color:var(--gold);white-space:nowrap;font-weight:600;flex-shrink:0;}
+
+/* ============ TARIFS — SEARCHABLE PRICE TABLE ============ */
+.tarif-search-wrap{max-width:440px;margin:0 auto 48px;position:relative;}
+.tarif-search-wrap svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:17px;height:17px;color:#8b8271;pointer-events:none;}
+#tarifSearch{
+  width:100%;padding:14px 18px 14px 46px;border-radius:40px;border:1px solid var(--line);
+  background:var(--white);font-family:'Inter',sans-serif;font-size:14px;color:var(--charcoal);outline:none;
+  transition:.3s ease;
+}
+#tarifSearch:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(173,138,84,.12);}
+.tarif-empty{display:none;text-align:center;padding:40px 0;font-size:13.5px;color:#8b8271;}
+.tarif-empty.show{display:block;}
+.tarif-category{margin-bottom:8px;}
+.tarif-category-title{
+  font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--gold);
+  margin:34px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line);
+}
+.tarif-category:first-of-type .tarif-category-title{margin-top:0;}
+.tarif-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px dotted rgba(23,19,16,.2);padding:11px 2px;}
+.tarif-row:last-child{border-bottom:none;}
+.tarif-row-name{font-size:13.5px;font-weight:500;color:var(--charcoal);}
+.tarif-row-price{font-family:'Playfair Display',serif;font-size:14.5px;color:var(--gold);white-space:nowrap;font-weight:600;flex-shrink:0;}
+.tarif-row.hide,.tarif-category.hide{display:none;}
+
+/* ============ RÈGLEMENT INTÉRIEUR ============ */
+.reglement-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:920px;margin:0 auto;}
+@media (max-width:760px){.reglement-grid{grid-template-columns:1fr;}}
+.reglement-item{
+  display:flex;gap:16px;align-items:flex-start;
+  background:rgba(255,255,255,.55);border:1px solid var(--line);border-radius:16px;padding:24px 22px;
+  transition:.3s ease;
+}
+.reglement-item:hover{border-color:var(--gold-soft);box-shadow:var(--shadow);}
+.reglement-emoji{font-size:24px;line-height:1;flex-shrink:0;}
+.reglement-item h4{font-size:14.5px;font-weight:600;color:var(--black);margin-bottom:6px;}
+.reglement-item p{font-size:12.5px;font-weight:300;color:#6b6355;line-height:1.6;}
 
 /* ============ GALLERY ============ */
 .gallery{background:var(--black);}
@@ -399,6 +455,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
       <a href="#services">Services</a>
       <a href="#headspa">Head Spa</a>
       <a href="#studio">Studio</a>
+      <a href="#tarifs">Tarifs</a>
       <a href="#gallery">Galerie</a>
       <a href="#booking">Réserver</a>
       <a href="#contact">Contact</a>
@@ -415,6 +472,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
   <a href="#services">Services</a>
   <a href="#headspa">Head Spa</a>
   <a href="#studio">Studio</a>
+  <a href="#tarifs">Tarifs</a>
   <a href="#gallery">Galerie</a>
   <a href="#booking">Réserver</a>
   <a href="#contact">Contact</a>
@@ -609,6 +667,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
       <div class="spa-card reveal">
         <span class="spa-duration">⏱ 30 min</span>
         <h3>Pureté</h3>
+        <p class="spa-caption">Diagnostic, brossage stimulant et massage crânien apaisant pour un cuir chevelu purifié.</p>
         <ul><li>Diagnostic</li><li>Brossage</li><li>Massage crânien</li></ul>
         <div class="spa-price">4 500 DA</div>
         <a href="#booking" class="spa-book" data-service="Rituel Pureté — 30 min — 4 500 DA">Réserver</a>
@@ -617,6 +676,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
       <div class="spa-card reveal reveal-delay-1">
         <span class="spa-duration">⏱ 45 min</span>
         <h3>Éclat</h3>
+        <p class="spa-caption">Le rituel Pureté enrichi d'un modelage relaxant pour une détente plus profonde.</p>
         <ul><li>Modelage inclus</li></ul>
         <div class="spa-price">6 000 DA</div>
         <a href="#booking" class="spa-book" data-service="Rituel Éclat (Head Spa) — 45 min — 6 000 DA">Réserver</a>
@@ -625,6 +685,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
       <div class="spa-card reveal reveal-delay-2">
         <span class="spa-duration">⏱ 1h00</span>
         <h3>Sensorielle</h3>
+        <p class="spa-caption">Head spa complet associé à un soin visage, pour une pause détente pour la tête entière.</p>
         <ul><li>Soin visage inclus</li></ul>
         <div class="spa-price">9 000 DA</div>
         <a href="#booking" class="spa-book" data-service="Sensorielle — 1h00 — 9 000 DA">Réserver</a>
@@ -633,6 +694,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
       <div class="spa-card featured reveal">
         <span class="spa-duration">⏱ 1h15</span>
         <h3>Évasion Absolue</h3>
+        <p class="spa-caption">Une immersion prolongée mêlant soin du visage et massage pour un lâcher-prise total.</p>
         <ul><li>Soin visage</li><li>Massage inclus</li></ul>
         <div class="spa-price">12 000 DA</div>
         <a href="#booking" class="spa-book" data-service="Évasion Absolue — 1h15 — 12 000 DA">Réserver</a>
@@ -641,6 +703,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
       <div class="spa-card reveal reveal-delay-1">
         <span class="spa-duration">⏱ 1h30</span>
         <h3>Impérial</h3>
+        <p class="spa-caption">Rituel signature combinant soin visage, modelage et massage pour une détente royale.</p>
         <ul><li>Soin visage</li><li>Modelage &amp; Massage</li></ul>
         <div class="spa-price">15 000 DA</div>
         <a href="#booking" class="spa-book" data-service="Rituel Impérial — 1h30 — 15 000 DA">Réserver</a>
@@ -649,9 +712,87 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
       <div class="spa-card reveal reveal-delay-2">
         <span class="spa-duration">⏱ 1h45</span>
         <h3>Cérémonie Royale</h3>
+        <p class="spa-caption">L'expérience ultime : soin visage complet et soin capillaire à froid, pour une renaissance totale.</p>
         <ul><li>Soin visage</li><li>Soin capillaire à froid</li></ul>
         <div class="spa-price">18 000 DA</div>
         <a href="#booking" class="spa-book" data-service="Cérémonie Royale — 1h45 — 18 000 DA">Réserver</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ BODY CARE — MASSAGE & MADÉRO ============ -->
+<section class="section" id="bodycare">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Silhouette &amp; Bien-être</span>
+      <h2>Massage &amp; <span class="serif-italic">Madéro</span></h2>
+      <p>Une gamme exclusive de soins corporels et de remodelage, alliant techniques de massage relaxantes, drainantes et madérothérapie pour sculpter la silhouette et libérer les tensions.</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <div class="menu-block reveal">
+        <div class="menu-block-title">💆‍♀️ Rituel Visage &amp; Buste</div>
+        <div class="menu-row"><span class="menu-row-name">Modelage Visage <small>30 min</small></span><span class="menu-row-price">3 000 DA</span></div>
+        <div class="menu-row"><span class="menu-row-name">Modelage Visage &amp; Buste <small>30 min</small></span><span class="menu-row-price">4 500 DA</span></div>
+        <div class="menu-row"><span class="menu-row-name">Massage Crânien &amp; Buste <small>30 min</small></span><span class="menu-row-price">4 500 DA</span></div>
+      </div>
+
+      <div class="menu-block reveal reveal-delay-1">
+        <div class="menu-block-title">✨ Rituel Corps</div>
+        <div class="menu-row"><span class="menu-row-name">Massage Relaxant Corporel <small>40 min</small></span><span class="menu-row-price">6 000 DA</span></div>
+        <div class="menu-row"><span class="menu-row-name">Massage Drainant Corporel <small>40 min</small></span><span class="menu-row-price">9 000 DA</span></div>
+        <div class="menu-row"><span class="menu-row-name">Massage &amp; Madéro Corporel <small>40 min</small></span><span class="menu-row-price">12 000 DA</span></div>
+      </div>
+
+      <div class="menu-block reveal reveal-delay-2">
+        <div class="menu-block-title">🎯 Soins Ciblés <small style="font-family:'Inter',sans-serif;font-style:normal;font-size:11.5px;font-weight:400;color:#8b8271;">(1 zone au choix)</small></div>
+        <div class="menu-row"><span class="menu-row-name">1 Zone — Massage Relaxant <small>30 min</small></span><span class="menu-row-price">3 000 DA</span></div>
+        <div class="menu-row"><span class="menu-row-name">1 Zone — Massage Drainant <small>30 min</small></span><span class="menu-row-price">4 500 DA</span></div>
+        <div class="menu-row"><span class="menu-row-name">1 Zone — Massage &amp; Madéro <small>30 min</small></span><span class="menu-row-price">4 500 DA</span></div>
+      </div>
+
+      <div class="menu-block reveal">
+        <div class="menu-block-title">👑 Cures de Transformation <small style="font-family:'Inter',sans-serif;font-style:normal;font-size:11.5px;font-weight:400;color:#8b8271;">(4 séances)</small></div>
+        <div class="menu-row"><span class="menu-row-name">Cure Transformation <small>4 séances Massage</small></span><span class="menu-row-price">20 000 DA</span></div>
+        <div class="menu-row"><span class="menu-row-name">Cure Transformation <small>4 séances Drainantes</small></span><span class="menu-row-price">30 000 DA</span></div>
+        <div class="menu-row"><span class="menu-row-name">Cure Transformation <small>4 séances Madérothérapie</small></span><span class="menu-row-price">40 000 DA</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOIN VISAGE, MANUCURE & PÉDICURE ============ -->
+<section class="section" id="visagemanucure" style="background:var(--ivory-deep);">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Éclat &amp; Précision</span>
+      <h2>Visage, Manucure &amp; <span class="serif-italic">Pédicure</span></h2>
+      <p>Une expérience complète dédiée à l'éclat de votre peau et au soin de vos mains et pieds, alliant technologies modernes et rituels relaxants.</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <div class="menu-block reveal">
+        <div class="menu-block-title">💆‍♀️ Rituels Visage</div>
+        <div class="menu-row"><span class="menu-row-name">Rituel Visage Classique <small>30 min · Nettoyage, gommage &amp; hydratation</small></span><span class="menu-row-price">4 500 DA</span></div>
+        <div class="menu-row"><span class="menu-row-name">Rituel Hydrafacial <small>45 min · Nettoyage profond, extraction &amp; hydratation intense</small></span><span class="menu-row-price">6 000 DA</span></div>
+        <div class="menu-row"><span class="menu-row-name">Rituel Oxygénothérapie <small>1h · Oxygénation, régénération &amp; éclat de la peau</small></span><span class="menu-row-price">9 000 DA</span></div>
+      </div>
+
+      <div class="menu-block reveal reveal-delay-1">
+        <div class="menu-block-title">💅 Rituels Mains &amp; Pieds</div>
+        <div class="menu-row"><span class="menu-row-name">Rituel Manucure <small>30 min · Limage, cuticules &amp; hydratation</small></span><span class="menu-row-price">3 000 DA</span></div>
+        <div class="menu-row"><span class="menu-row-name">Rituel Pédicure <small>45 min · Bain relaxant, gommage &amp; hydratation</small></span><span class="menu-row-price">4 500 DA</span></div>
+      </div>
+
+      <div class="menu-block reveal reveal-delay-2" style="grid-column:1 / -1;">
+        <div class="menu-block-title">👑 Rituels Combinés &amp; Pack Premium</div>
+        <div class="menu-row"><span class="menu-row-name">Rituel Complet Éclat <small>1h30 · Soin visage + Manucure + Pédicure</small></span><span class="menu-row-price">12 000 DA</span></div>
+        <div class="menu-row"><span class="menu-row-name">Rituel Perfection <small>1h30 · Hydrafacial + Luminothérapie LED + Manucure + Pédicure &amp; Massage</small></span><span class="menu-row-price">15 000 DA</span></div>
       </div>
 
     </div>
@@ -764,6 +905,141 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
   </div>
 </section>
 
+<!-- ============ TARIFS ============ -->
+<section class="section" id="tarifs" style="background:var(--ivory-deep);">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Vue d'ensemble</span>
+      <h2>Nos <span class="serif-italic">Tarifs</span></h2>
+      <p>Une vue globale de toutes nos prestations. Utilisez la recherche pour trouver rapidement un soin.</p>
+    </div>
+
+    <div class="tarif-search-wrap reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" id="tarifSearch" placeholder="Rechercher un soin (ex. Soin, Onglerie, Massage...)">
+    </div>
+
+    <div id="tarifResults" class="reveal">
+
+      <div class="tarif-category" data-cat="Diagnostic">
+        <div class="tarif-category-title">Diagnostic</div>
+        <div class="tarif-row"><span class="tarif-row-name">Bilan capillaire</span><span class="tarif-row-price">Gratuit</span></div>
+      </div>
+
+      <div class="tarif-category" data-cat="Coupe & Styling">
+        <div class="tarif-category-title">Coupe &amp; Styling</div>
+        <div class="tarif-row"><span class="tarif-row-name">Coupe</span><span class="tarif-row-price">500 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Ondulé</span><span class="tarif-row-price">à partir de 1 500 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Wavy</span><span class="tarif-row-price">à partir de 2 500 DA</span></div>
+      </div>
+
+      <div class="tarif-category" data-cat="Coloration & Techniques">
+        <div class="tarif-category-title">Coloration &amp; Techniques</div>
+        <div class="tarif-row"><span class="tarif-row-name">Coloration</span><span class="tarif-row-price">4 500 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Mèches</span><span class="tarif-row-price">à partir de 6 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Balayage</span><span class="tarif-row-price">à partir de 9 000 DA</span></div>
+      </div>
+
+      <div class="tarif-category" data-cat="Soin capillaire">
+        <div class="tarif-category-title">Soin capillaire</div>
+        <div class="tarif-row"><span class="tarif-row-name">Rituel Éclat</span><span class="tarif-row-price">6 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Rituel à Froid</span><span class="tarif-row-price">à partir de 9 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Rituel à Chaud</span><span class="tarif-row-price">à partir de 12 000 DA</span></div>
+      </div>
+
+      <div class="tarif-category" data-cat="Coiffure">
+        <div class="tarif-category-title">Coiffure</div>
+        <div class="tarif-row"><span class="tarif-row-name">Coiffure Simple</span><span class="tarif-row-price">3 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Coiffure Sophistiquée</span><span class="tarif-row-price">4 500 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Coiffure 3D</span><span class="tarif-row-price">6 000 DA</span></div>
+      </div>
+
+      <div class="tarif-category" data-cat="Maquillage">
+        <div class="tarif-category-title">Maquillage</div>
+        <div class="tarif-row"><span class="tarif-row-name">Maquillage Essentiel</span><span class="tarif-row-price">3 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Maquillage Intense</span><span class="tarif-row-price">4 500 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Maquillage Signature</span><span class="tarif-row-price">6 000 DA</span></div>
+      </div>
+
+      <div class="tarif-category" data-cat="Rituels & Packs Événementiels">
+        <div class="tarif-category-title">Rituels &amp; Packs Événementiels</div>
+        <div class="tarif-row"><span class="tarif-row-name">Pack Khotba</span><span class="tarif-row-price">12 000 à 14 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Pack 3rossa</span><span class="tarif-row-price">14 000 à 16 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Pack Henna</span><span class="tarif-row-price">16 000 à 18 000 DA</span></div>
+      </div>
+
+      <div class="tarif-category" data-cat="Head Spa & Massage">
+        <div class="tarif-category-title">Head Spa &amp; Massage</div>
+        <div class="tarif-row"><span class="tarif-row-name">Rituel Pureté — 30 min</span><span class="tarif-row-price">4 500 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Rituel Éclat — 45 min</span><span class="tarif-row-price">6 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Sensorielle — 1h00</span><span class="tarif-row-price">9 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Évasion Absolue — 1h15</span><span class="tarif-row-price">12 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Rituel Impérial — 1h30</span><span class="tarif-row-price">15 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Cérémonie Royale — 1h45</span><span class="tarif-row-price">18 000 DA</span></div>
+      </div>
+
+      <div class="tarif-category" data-cat="Massage & Madéro">
+        <div class="tarif-category-title">Massage &amp; Madéro</div>
+        <div class="tarif-row"><span class="tarif-row-name">Modelage Visage — 30 min</span><span class="tarif-row-price">3 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Modelage Visage &amp; Buste — 30 min</span><span class="tarif-row-price">4 500 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Massage Crânien &amp; Buste — 30 min</span><span class="tarif-row-price">4 500 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Massage Relaxant Corporel — 40 min</span><span class="tarif-row-price">6 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Massage Drainant Corporel — 40 min</span><span class="tarif-row-price">9 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Massage &amp; Madéro Corporel — 40 min</span><span class="tarif-row-price">12 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">1 Zone — Massage Relaxant — 30 min</span><span class="tarif-row-price">3 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">1 Zone — Massage Drainant — 30 min</span><span class="tarif-row-price">4 500 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">1 Zone — Massage &amp; Madéro — 30 min</span><span class="tarif-row-price">4 500 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Cure Transformation — 4 séances Massage</span><span class="tarif-row-price">20 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Cure Transformation — 4 séances Drainantes</span><span class="tarif-row-price">30 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Cure Transformation — 4 séances Madérothérapie</span><span class="tarif-row-price">40 000 DA</span></div>
+      </div>
+
+      <div class="tarif-category" data-cat="Visage, Manucure & Pédicure">
+        <div class="tarif-category-title">Visage, Manucure &amp; Pédicure</div>
+        <div class="tarif-row"><span class="tarif-row-name">Rituel Visage Classique — 30 min</span><span class="tarif-row-price">4 500 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Rituel Hydrafacial — 45 min</span><span class="tarif-row-price">6 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Rituel Oxygénothérapie — 1h</span><span class="tarif-row-price">9 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Rituel Manucure — 30 min</span><span class="tarif-row-price">3 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Rituel Pédicure — 45 min</span><span class="tarif-row-price">4 500 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Rituel Complet Éclat — 1h30</span><span class="tarif-row-price">12 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Rituel Perfection — 1h30</span><span class="tarif-row-price">15 000 DA</span></div>
+      </div>
+
+      <div class="tarif-category" data-cat="Onglerie">
+        <div class="tarif-category-title">Onglerie</div>
+        <div class="tarif-row"><span class="tarif-row-name">Soin des mains</span><span class="tarif-row-price">3 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Soin des pieds</span><span class="tarif-row-price">4 500 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Vernis Semi-Permanent (VSP)</span><span class="tarif-row-price">2 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">VSP &amp; Soin pieds</span><span class="tarif-row-price">6 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Pose Gel</span><span class="tarif-row-price">à partir de 2 500 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Pose Capsule</span><span class="tarif-row-price">à partir de 3 000 DA</span></div>
+      </div>
+
+      <div class="tarif-category" data-cat="Visage & Regard">
+        <div class="tarif-category-title">Visage &amp; Regard</div>
+        <div class="tarif-row"><span class="tarif-row-name">Épilation au fil</span><span class="tarif-row-price">1 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Brow / Lash Lift Essentiel</span><span class="tarif-row-price">3 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Brow / Lash Lift Signature</span><span class="tarif-row-price">6 000 DA</span></div>
+      </div>
+
+      <div class="tarif-category" data-cat="Studio & Shooting">
+        <div class="tarif-category-title">Studio &amp; Shooting</div>
+        <div class="tarif-row"><span class="tarif-row-name">Studio Seul — 1h30</span><span class="tarif-row-price">3 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Studio Seul — Demi-journée</span><span class="tarif-row-price">6 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Studio Seul — Journée complète</span><span class="tarif-row-price">9 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Studio + Shooting iPhone 17 Pro Max — 1h30</span><span class="tarif-row-price">3 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Studio + Shooting iPhone 17 Pro Max — Demi-journée</span><span class="tarif-row-price">6 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Studio + Shooting iPhone 17 Pro Max — Journée complète</span><span class="tarif-row-price">12 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Service Modèle — 1h30</span><span class="tarif-row-price">3 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Service Modèle — Demi-journée</span><span class="tarif-row-price">6 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Service Modèle — Journée complète</span><span class="tarif-row-price">12 000 DA</span></div>
+      </div>
+
+      <div class="tarif-empty" id="tarifEmpty">Aucun soin ne correspond à votre recherche.</div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ BOOKING ============ -->
 <section class="section booking" id="booking">
   <div class="container booking-wrap">
@@ -800,15 +1076,15 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
           <select id="service" name="service">
             <option value="">Choisissez un service</option>
             <optgroup label="Diagnostic">
-              <option>Bilan complet — Gratuit</option>
+              <option>Bilan capillaire — Gratuit</option>
             </optgroup>
             <optgroup label="Coupe &amp; Styling">
-              <option>Classique — 500 DA</option>
+              <option>Coupe — 500 DA</option>
               <option>Ondulé — à partir de 1 500 DA</option>
               <option>Wavy — à partir de 2 500 DA</option>
             </optgroup>
             <optgroup label="Coloration &amp; Techniques">
-              <option>Uniforme — 4 500 DA</option>
+              <option>Coloration — 4 500 DA</option>
               <option>Mèches — à partir de 6 000 DA</option>
               <option>Balayage — à partir de 9 000 DA</option>
             </optgroup>
@@ -856,6 +1132,29 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
               <option>Rituel Impérial — 1h30 — 15 000 DA</option>
               <option>Cérémonie Royale — 1h45 — 18 000 DA</option>
             </optgroup>
+            <optgroup label="Massage &amp; Madéro">
+              <option>Modelage Visage — 30 min — 3 000 DA</option>
+              <option>Modelage Visage &amp; Buste — 30 min — 4 500 DA</option>
+              <option>Massage Crânien &amp; Buste — 30 min — 4 500 DA</option>
+              <option>Massage Relaxant Corporel — 40 min — 6 000 DA</option>
+              <option>Massage Drainant Corporel — 40 min — 9 000 DA</option>
+              <option>Massage &amp; Madéro Corporel — 40 min — 12 000 DA</option>
+              <option>1 Zone — Massage Relaxant — 30 min — 3 000 DA</option>
+              <option>1 Zone — Massage Drainant — 30 min — 4 500 DA</option>
+              <option>1 Zone — Massage &amp; Madéro — 30 min — 4 500 DA</option>
+              <option>Cure Transformation — 4 séances Massage — 20 000 DA</option>
+              <option>Cure Transformation — 4 séances Drainantes — 30 000 DA</option>
+              <option>Cure Transformation — 4 séances Madérothérapie — 40 000 DA</option>
+            </optgroup>
+            <optgroup label="Visage, Manucure &amp; Pédicure">
+              <option>Rituel Visage Classique — 30 min — 4 500 DA</option>
+              <option>Rituel Hydrafacial — 45 min — 6 000 DA</option>
+              <option>Rituel Oxygénothérapie — 1h — 9 000 DA</option>
+              <option>Rituel Manucure — 30 min — 3 000 DA</option>
+              <option>Rituel Pédicure — 45 min — 4 500 DA</option>
+              <option>Rituel Complet Éclat — 1h30 — 12 000 DA</option>
+              <option>Rituel Perfection — 1h30 — 15 000 DA</option>
+            </optgroup>
             <optgroup label="Studio &amp; Shooting">
               <option>Studio Seul — 1h30 — 3 000 DA</option>
               <option>Studio Seul — Demi-journée — 6 000 DA</option>
@@ -901,6 +1200,62 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
           Confirmer sur WhatsApp
         </a>
         <button type="button" id="newBookingBtn" style="margin-top:14px;background:none;border:none;font-size:12.5px;text-transform:uppercase;letter-spacing:.1em;color:#8b8271;cursor:pointer;">Faire une nouvelle demande</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RÈGLEMENT INTÉRIEUR ============ -->
+<section class="section" id="reglement" style="background:var(--ivory-deep);">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Charte de Qualité &amp; Sérénité</span>
+      <h2>Règlement <span class="serif-italic">Intérieur</span> 🤍</h2>
+      <p>Quelques principes simples qui garantissent une expérience sereine et raffinée pour chacune de nos clientes.</p>
+    </div>
+
+    <div class="reglement-grid">
+      <div class="reglement-item reveal">
+        <div class="reglement-emoji">⏰</div>
+        <div>
+          <h4>Ponctualité &amp; Respect des RDV</h4>
+          <p>Merci de respecter l'horaire de votre rendez-vous pour garantir la qualité et la fluidité des prestations.</p>
+        </div>
+      </div>
+      <div class="reglement-item reveal reveal-delay-1">
+        <div class="reglement-emoji">👗</div>
+        <div>
+          <h4>Hygiène &amp; Présentation</h4>
+          <p>Une tenue élégante et une hygiène irréprochable sont indispensables pour le confort de toutes.</p>
+        </div>
+      </div>
+      <div class="reglement-item reveal reveal-delay-2">
+        <div class="reglement-emoji">🌿</div>
+        <div>
+          <h4>Sérénité &amp; Discrétion</h4>
+          <p>Afin de préserver l'atmosphère de détente du salon, merci de maintenir une voix basse et d'éviter les appels téléphoniques.</p>
+        </div>
+      </div>
+      <div class="reglement-item reveal">
+        <div class="reglement-emoji">🧼</div>
+        <div>
+          <h4>Désinfection &amp; Sécurité</h4>
+          <p>Tout notre matériel est rigoureusement nettoyé et désinfecté après chaque cliente.</p>
+        </div>
+      </div>
+      <div class="reglement-item reveal reveal-delay-1">
+        <div class="reglement-emoji">🚭</div>
+        <div>
+          <h4>Espace Sain</h4>
+          <p>Il est strictement interdit de fumer ou de consommer de la nourriture à l'intérieur du salon.</p>
+        </div>
+      </div>
+      <div class="reglement-item reveal reveal-delay-2">
+        <div class="reglement-emoji">💳</div>
+        <div>
+          <h4>Paiement</h4>
+          <p>Le règlement de la prestation s'effectue directement à la caisse dès la fin de votre service.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1028,6 +1383,38 @@ document.querySelectorAll('.spa-book[data-service]').forEach(btn => {
     document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
   });
 });
+
+/* ============ TARIFS — RECHERCHE ============ */
+const tarifSearch = document.getElementById('tarifSearch');
+const tarifCategories = document.querySelectorAll('.tarif-category');
+const tarifEmpty = document.getElementById('tarifEmpty');
+
+function filterTarifs(){
+  const q = tarifSearch.value.trim().toLowerCase();
+  let anyVisible = false;
+
+  tarifCategories.forEach(cat => {
+    const rows = cat.querySelectorAll('.tarif-row');
+    let catHasMatch = false;
+
+    rows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      const catName = (cat.dataset.cat || '').toLowerCase();
+      const match = !q || text.includes(q) || catName.includes(q);
+      row.classList.toggle('hide', !match);
+      if (match) catHasMatch = true;
+    });
+
+    cat.classList.toggle('hide', !catHasMatch);
+    if (catHasMatch) anyVisible = true;
+  });
+
+  tarifEmpty.classList.toggle('show', !anyVisible);
+}
+
+if (tarifSearch) {
+  tarifSearch.addEventListener('input', filterTarifs);
+}
 
 /* ============ STAT COUNTERS ============ */
 const statEls = document.querySelectorAll('.stat-num');
