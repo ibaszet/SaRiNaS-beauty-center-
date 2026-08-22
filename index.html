@@ -226,7 +226,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
   text-transform:uppercase;letter-spacing:.08em;padding:5px 14px;border-radius:20px;
 }
 .spa-duration{
-  align-self:flex-start;display:inline-flex;align-items:center;gap:5px;
+  align-self:flex-start;display:inline-flex;align-items:center;gap:6px;
   font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);
   background:rgba(173,138,84,.12);border:1px solid rgba(173,138,84,.3);
   padding:5px 13px;border-radius:30px;margin-bottom:20px;
@@ -277,6 +277,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
   display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;
   font-style:italic;font-weight:500;font-size:18.5px;color:var(--black);margin-bottom:18px;
 }
+.menu-block-title svg{width:19px;height:19px;color:var(--gold);flex-shrink:0;}
 .menu-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px dotted rgba(23,19,16,.2);padding:11px 0;}
 .menu-row:last-child{border-bottom:none;}
 .menu-row-name{font-size:13.5px;font-weight:500;color:var(--charcoal);}
@@ -315,7 +316,12 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
   transition:.3s ease;
 }
 .reglement-item:hover{border-color:var(--gold-soft);box-shadow:var(--shadow);}
-.reglement-emoji{font-size:24px;line-height:1;flex-shrink:0;}
+.reglement-emoji{
+  flex-shrink:0;width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(173,138,84,.12);color:var(--gold);
+}
+.reglement-emoji svg{width:19px;height:19px;}
 .reglement-item h4{font-size:14.5px;font-weight:600;color:var(--black);margin-bottom:6px;}
 .reglement-item p{font-size:12.5px;font-weight:300;color:#6b6355;line-height:1.6;}
 
@@ -665,7 +671,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
     <div class="spa-grid">
 
       <div class="spa-card reveal">
-        <span class="spa-duration">⏱ 30 min</span>
+        <span class="spa-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;flex-shrink:0;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>30 min</span>
         <h3>Pureté</h3>
         <p class="spa-caption">Diagnostic, brossage stimulant et massage crânien apaisant pour un cuir chevelu purifié.</p>
         <ul><li>Diagnostic</li><li>Brossage</li><li>Massage crânien</li></ul>
@@ -674,7 +680,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
       </div>
 
       <div class="spa-card reveal reveal-delay-1">
-        <span class="spa-duration">⏱ 45 min</span>
+        <span class="spa-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;flex-shrink:0;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>45 min</span>
         <h3>Éclat</h3>
         <p class="spa-caption">Le rituel Pureté enrichi d'un modelage relaxant pour une détente plus profonde.</p>
         <ul><li>Modelage inclus</li></ul>
@@ -683,7 +689,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
       </div>
 
       <div class="spa-card reveal reveal-delay-2">
-        <span class="spa-duration">⏱ 1h00</span>
+        <span class="spa-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;flex-shrink:0;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>1h00</span>
         <h3>Sensorielle</h3>
         <p class="spa-caption">Head spa complet associé à un soin visage, pour une pause détente pour la tête entière.</p>
         <ul><li>Soin visage inclus</li></ul>
@@ -692,7 +698,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
       </div>
 
       <div class="spa-card featured reveal">
-        <span class="spa-duration">⏱ 1h15</span>
+        <span class="spa-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;flex-shrink:0;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>1h15</span>
         <h3>Évasion Absolue</h3>
         <p class="spa-caption">Une immersion prolongée mêlant soin du visage et massage pour un lâcher-prise total.</p>
         <ul><li>Soin visage</li><li>Massage inclus</li></ul>
@@ -701,7 +707,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
       </div>
 
       <div class="spa-card reveal reveal-delay-1">
-        <span class="spa-duration">⏱ 1h30</span>
+        <span class="spa-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;flex-shrink:0;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>1h30</span>
         <h3>Impérial</h3>
         <p class="spa-caption">Rituel signature combinant soin visage, modelage et massage pour une détente royale.</p>
         <ul><li>Soin visage</li><li>Modelage &amp; Massage</li></ul>
@@ -710,7 +716,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
       </div>
 
       <div class="spa-card reveal reveal-delay-2">
-        <span class="spa-duration">⏱ 1h45</span>
+        <span class="spa-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;flex-shrink:0;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>1h45</span>
         <h3>Cérémonie Royale</h3>
         <p class="spa-caption">L'expérience ultime : soin visage complet et soin capillaire à froid, pour une renaissance totale.</p>
         <ul><li>Soin visage</li><li>Soin capillaire à froid</li></ul>
@@ -734,28 +740,28 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
     <div class="menu-grid">
 
       <div class="menu-block reveal">
-        <div class="menu-block-title">💆‍♀️ Rituel Visage &amp; Buste</div>
+        <div class="menu-block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3.2"/><path d="M5 20c0-3 2.5-5 4-5M19 20c0-3-2.5-5-4-5"/></svg> Rituel Visage &amp; Buste</div>
         <div class="menu-row"><span class="menu-row-name">Modelage Visage <small>30 min</small></span><span class="menu-row-price">3 000 DA</span></div>
         <div class="menu-row"><span class="menu-row-name">Modelage Visage &amp; Buste <small>30 min</small></span><span class="menu-row-price">4 500 DA</span></div>
         <div class="menu-row"><span class="menu-row-name">Massage Crânien &amp; Buste <small>30 min</small></span><span class="menu-row-price">4 500 DA</span></div>
       </div>
 
       <div class="menu-block reveal reveal-delay-1">
-        <div class="menu-block-title">✨ Rituel Corps</div>
+        <div class="menu-block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/></svg> Rituel Corps</div>
         <div class="menu-row"><span class="menu-row-name">Massage Relaxant Corporel <small>40 min</small></span><span class="menu-row-price">6 000 DA</span></div>
         <div class="menu-row"><span class="menu-row-name">Massage Drainant Corporel <small>40 min</small></span><span class="menu-row-price">9 000 DA</span></div>
         <div class="menu-row"><span class="menu-row-name">Massage &amp; Madéro Corporel <small>40 min</small></span><span class="menu-row-price">12 000 DA</span></div>
       </div>
 
       <div class="menu-block reveal reveal-delay-2">
-        <div class="menu-block-title">🎯 Soins Ciblés <small style="font-family:'Inter',sans-serif;font-style:normal;font-size:11.5px;font-weight:400;color:#8b8271;">(1 zone au choix)</small></div>
+        <div class="menu-block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg> Soins Ciblés <small style="font-family:'Inter',sans-serif;font-style:normal;font-size:11.5px;font-weight:400;color:#8b8271;">(1 zone au choix)</small></div>
         <div class="menu-row"><span class="menu-row-name">1 Zone — Massage Relaxant <small>30 min</small></span><span class="menu-row-price">3 000 DA</span></div>
         <div class="menu-row"><span class="menu-row-name">1 Zone — Massage Drainant <small>30 min</small></span><span class="menu-row-price">4 500 DA</span></div>
         <div class="menu-row"><span class="menu-row-name">1 Zone — Massage &amp; Madéro <small>30 min</small></span><span class="menu-row-price">4 500 DA</span></div>
       </div>
 
       <div class="menu-block reveal">
-        <div class="menu-block-title">👑 Cures de Transformation <small style="font-family:'Inter',sans-serif;font-style:normal;font-size:11.5px;font-weight:400;color:#8b8271;">(4 séances)</small></div>
+        <div class="menu-block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4 3 5-6 5 6 4-3-2 10H5L3 8z"/><path d="M5 21h14"/></svg> Cures de Transformation <small style="font-family:'Inter',sans-serif;font-style:normal;font-size:11.5px;font-weight:400;color:#8b8271;">(4 séances)</small></div>
         <div class="menu-row"><span class="menu-row-name">Cure Transformation <small>4 séances Massage</small></span><span class="menu-row-price">20 000 DA</span></div>
         <div class="menu-row"><span class="menu-row-name">Cure Transformation <small>4 séances Drainantes</small></span><span class="menu-row-price">30 000 DA</span></div>
         <div class="menu-row"><span class="menu-row-name">Cure Transformation <small>4 séances Madérothérapie</small></span><span class="menu-row-price">40 000 DA</span></div>
@@ -777,20 +783,20 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
     <div class="menu-grid">
 
       <div class="menu-block reveal">
-        <div class="menu-block-title">💆‍♀️ Rituels Visage</div>
+        <div class="menu-block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3.2"/><path d="M5 20c0-3 2.5-5 4-5M19 20c0-3-2.5-5-4-5"/></svg> Rituels Visage</div>
         <div class="menu-row"><span class="menu-row-name">Rituel Visage Classique <small>30 min · Nettoyage, gommage &amp; hydratation</small></span><span class="menu-row-price">4 500 DA</span></div>
         <div class="menu-row"><span class="menu-row-name">Rituel Hydrafacial <small>45 min · Nettoyage profond, extraction &amp; hydratation intense</small></span><span class="menu-row-price">6 000 DA</span></div>
         <div class="menu-row"><span class="menu-row-name">Rituel Oxygénothérapie <small>1h · Oxygénation, régénération &amp; éclat de la peau</small></span><span class="menu-row-price">9 000 DA</span></div>
       </div>
 
       <div class="menu-block reveal reveal-delay-1">
-        <div class="menu-block-title">💅 Rituels Mains &amp; Pieds</div>
+        <div class="menu-block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v7a5 5 0 0010 0V3"/><path d="M7 10c-1.5 1-2 2.5-2 4.5C5 18.5 8 21 12 21s7-2.5 7-6.5c0-2-.5-3.5-2-4.5"/></svg> Rituels Mains &amp; Pieds</div>
         <div class="menu-row"><span class="menu-row-name">Rituel Manucure <small>30 min · Limage, cuticules &amp; hydratation</small></span><span class="menu-row-price">3 000 DA</span></div>
         <div class="menu-row"><span class="menu-row-name">Rituel Pédicure <small>45 min · Bain relaxant, gommage &amp; hydratation</small></span><span class="menu-row-price">4 500 DA</span></div>
       </div>
 
       <div class="menu-block reveal reveal-delay-2" style="grid-column:1 / -1;">
-        <div class="menu-block-title">👑 Rituels Combinés &amp; Pack Premium</div>
+        <div class="menu-block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4 3 5-6 5 6 4-3-2 10H5L3 8z"/><path d="M5 21h14"/></svg> Rituels Combinés &amp; Pack Premium</div>
         <div class="menu-row"><span class="menu-row-name">Rituel Complet Éclat <small>1h30 · Soin visage + Manucure + Pédicure</small></span><span class="menu-row-price">12 000 DA</span></div>
         <div class="menu-row"><span class="menu-row-name">Rituel Perfection <small>1h30 · Hydrafacial + Luminothérapie LED + Manucure + Pédicure &amp; Massage</small></span><span class="menu-row-price">15 000 DA</span></div>
       </div>
@@ -1005,14 +1011,30 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
         <div class="tarif-row"><span class="tarif-row-name">Rituel Perfection — 1h30</span><span class="tarif-row-price">15 000 DA</span></div>
       </div>
 
+      <div class="tarif-category" data-cat="Esthétique">
+        <div class="tarif-category-title">Esthétique</div>
+        <div class="tarif-row"><span class="tarif-row-name">Lashlift / Browlift</span><span class="tarif-row-price">3 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Soin visage profond</span><span class="tarif-row-price">4 500 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Head-Spa</span><span class="tarif-row-price">à partir de 4 500 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Hydra-Facial</span><span class="tarif-row-price">à partir de 6 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Full Body Massage</span><span class="tarif-row-price">6 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Full Body Waxing</span><span class="tarif-row-price">6 000 DA</span></div>
+      </div>
+
       <div class="tarif-category" data-cat="Onglerie">
         <div class="tarif-category-title">Onglerie</div>
         <div class="tarif-row"><span class="tarif-row-name">Soin des mains</span><span class="tarif-row-price">3 000 DA</span></div>
         <div class="tarif-row"><span class="tarif-row-name">Soin des pieds</span><span class="tarif-row-price">4 500 DA</span></div>
         <div class="tarif-row"><span class="tarif-row-name">Vernis Semi-Permanent (VSP)</span><span class="tarif-row-price">2 000 DA</span></div>
         <div class="tarif-row"><span class="tarif-row-name">VSP &amp; Soin pieds</span><span class="tarif-row-price">6 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Gel Polish</span><span class="tarif-row-price">2 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Gel Extensions</span><span class="tarif-row-price">2 500 DA</span></div>
         <div class="tarif-row"><span class="tarif-row-name">Pose Gel</span><span class="tarif-row-price">à partir de 2 500 DA</span></div>
         <div class="tarif-row"><span class="tarif-row-name">Pose Capsule</span><span class="tarif-row-price">à partir de 3 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Décor</span><span class="tarif-row-price">3 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">French</span><span class="tarif-row-price">1 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Baby-Boomer</span><span class="tarif-row-price">1 000 DA</span></div>
+        <div class="tarif-row"><span class="tarif-row-name">Remove</span><span class="tarif-row-price">1 000 DA</span></div>
       </div>
 
       <div class="tarif-category" data-cat="Visage & Regard">
@@ -1108,6 +1130,14 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
               <option>Pack 3rossa — 14 000 à 16 000 DA</option>
               <option>Pack Henna — 16 000 à 18 000 DA</option>
             </optgroup>
+            <optgroup label="Esthétique">
+              <option>Lashlift / Browlift — 3 000 DA</option>
+              <option>Soin visage profond — 4 500 DA</option>
+              <option>Head-Spa — à partir de 4 500 DA</option>
+              <option>Hydra-Facial — à partir de 6 000 DA</option>
+              <option>Full Body Massage — 6 000 DA</option>
+              <option>Full Body Waxing — 6 000 DA</option>
+            </optgroup>
             <optgroup label="Visage &amp; Regard">
               <option>Nettoyage Profond — 4 500 DA</option>
               <option>Hydrafacial — à partir de 6 000 DA</option>
@@ -1121,8 +1151,14 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
               <option>Soin des pieds — 4 500 DA</option>
               <option>Vernis Semi-Permanent (VSP) — 2 000 DA</option>
               <option>VSP &amp; Soin pieds — 6 000 DA</option>
+              <option>Gel Polish — 2 000 DA</option>
+              <option>Gel Extensions — 2 500 DA</option>
               <option>Pose Gel — à partir de 2 500 DA</option>
               <option>Pose Capsule — à partir de 3 000 DA</option>
+              <option>Décor — 3 000 DA</option>
+              <option>French — 1 000 DA</option>
+              <option>Baby-Boomer — 1 000 DA</option>
+              <option>Remove — 1 000 DA</option>
             </optgroup>
             <optgroup label="Head Spa &amp; Massage">
               <option>Rituel Pureté — 30 min — 4 500 DA</option>
@@ -1210,48 +1246,48 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;color:var(--black)
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow">Charte de Qualité &amp; Sérénité</span>
-      <h2>Règlement <span class="serif-italic">Intérieur</span> 🤍</h2>
+      <h2>Règlement <span class="serif-italic">Intérieur</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px;display:inline-block;vertical-align:-2px;color:var(--gold);"><path d="M12 20s-7-4.4-9.5-9C.6 7.3 2.4 4 5.8 4 8 4 10 5.3 12 8c2-2.7 4-4 6.2-4 3.4 0 5.2 3.3 3.3 7-2.5 4.6-9.5 9-9.5 9z"/></svg></h2>
       <p>Quelques principes simples qui garantissent une expérience sereine et raffinée pour chacune de nos clientes.</p>
     </div>
 
     <div class="reglement-grid">
       <div class="reglement-item reveal">
-        <div class="reglement-emoji">⏰</div>
+        <div class="reglement-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 1.5M5 3L2 6M19 3l3 3"/></svg></div>
         <div>
           <h4>Ponctualité &amp; Respect des RDV</h4>
           <p>Merci de respecter l'horaire de votre rendez-vous pour garantir la qualité et la fluidité des prestations.</p>
         </div>
       </div>
       <div class="reglement-item reveal reveal-delay-1">
-        <div class="reglement-emoji">👗</div>
+        <div class="reglement-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4l3 2 3-2 3 4-3 2v11H9V10L6 8z"/></svg></div>
         <div>
           <h4>Hygiène &amp; Présentation</h4>
           <p>Une tenue élégante et une hygiène irréprochable sont indispensables pour le confort de toutes.</p>
         </div>
       </div>
       <div class="reglement-item reveal reveal-delay-2">
-        <div class="reglement-emoji">🌿</div>
+        <div class="reglement-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21c9 0 14-5 14-14V5h-2C8 5 5 12 5 19v2z"/><path d="M5 21c3-5 6-8 12-11"/></svg></div>
         <div>
           <h4>Sérénité &amp; Discrétion</h4>
           <p>Afin de préserver l'atmosphère de détente du salon, merci de maintenir une voix basse et d'éviter les appels téléphoniques.</p>
         </div>
       </div>
       <div class="reglement-item reveal">
-        <div class="reglement-emoji">🧼</div>
+        <div class="reglement-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="3"/><path d="M8 10V8a4 4 0 018 0"/><path d="M9 15l1.8 1.8L15 13"/></svg></div>
         <div>
           <h4>Désinfection &amp; Sécurité</h4>
           <p>Tout notre matériel est rigoureusement nettoyé et désinfecté après chaque cliente.</p>
         </div>
       </div>
       <div class="reglement-item reveal reveal-delay-1">
-        <div class="reglement-emoji">🚭</div>
+        <div class="reglement-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M4 4l16 16"/><path d="M6 15h9M15 15v-2a2 2 0 00-2-2h-1"/></svg></div>
         <div>
           <h4>Espace Sain</h4>
           <p>Il est strictement interdit de fumer ou de consommer de la nourriture à l'intérieur du salon.</p>
         </div>
       </div>
       <div class="reglement-item reveal reveal-delay-2">
-        <div class="reglement-emoji">💳</div>
+        <div class="reglement-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></div>
         <div>
           <h4>Paiement</h4>
           <p>Le règlement de la prestation s'effectue directement à la caisse dès la fin de votre service.</p>
